@@ -1,0 +1,45 @@
+
+{% block content %}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>运维平台</title>
+    <script src="/static/js/bootstrapValidator.min.js"></script>
+    <script src="/static/js/bootstrap-modal-vertical.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
+    <script src="/static/js/jquery-1.12.4.js"></script>
+    <script type="text/javascript">//<![CDATA[
+    $(function () {
+        $('#backup_all').click(function () {
+            var socket = new WebSocket("ws://" + window.location.host + "/echo_once/");
+            socket.onopen = function () {
+                console.log('WebSocket open');//成功连接上Websocket
+                socket.send($('#message').val());//发送数据到服务端
+            };
+            socket.onmessage = function (e) {
+                console.log('message: ' + e.data);//打印服务端返回的数据
+                $('#messagecontainer').prepend('<p><pre>' + e.data + '</pre></p>');
+                $('#messagecontainer').prepend('<hr />');
+            };
+        });
+    });
+    </script>
+</head>
+<body>
+<br>
+<div class="item form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12">请输入</label>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+<input type="text" id="message" />
+    </div>
+</div>
+
+<button style="margin: 20px;height: 40px;background-color: aliceblue;" type="button" id="backup_all" value="backup_all">
+    执行份脚本
+</button>
+<h3 style="margin: 20px;">脚本执行结果:</h3>
+<div id="messagecontainer" style="margin: 20px;">
+</div>
+<hr/>
+</body>
+{% endblock %}
+
