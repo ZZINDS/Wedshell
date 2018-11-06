@@ -27,17 +27,21 @@
     </script>
 </head>
 <body>
-<br>
-<div class="item form-group">
-    <label>请输入</label>
-    <div>
-<input type="text" id="message" />
+<form class="form-horizontal">
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">输入命令</label>
+    <div class="col-sm-10">
+      <input type="text" style="margin: 20px;height: 40px;background-color: aliceblue;" id="message" placeholder="ls -a">
     </div>
-</div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="button" class="btn btn-default" id="backup_all" value="backup_all">执行命令</button>
+    </div>
+  </div>
+</form>
+<br>
 
-<button style="margin: 20px;height: 40px;background-color: aliceblue;" type="button" id="backup_all" value="backup_all">
-    执行份脚本
-</button>
 <h3 style="margin: 20px;">脚本执行结果:</h3>
 <div id="messagecontainer" style="margin: 20px;">
 </div>
