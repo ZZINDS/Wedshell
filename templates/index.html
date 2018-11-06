@@ -1,8 +1,10 @@
-
+{% load staticfiles %}
 {% block content %}
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>运维平台</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/bootstrap-theme.css">
     <script src="/static/js/bootstrapValidator.min.js"></script>
     <script src="/static/js/bootstrap-modal-vertical.js"></script>
     <script src="/static/js/bootstrap.js"></script>
@@ -10,7 +12,7 @@
     <script type="text/javascript">//<![CDATA[
     $(function () {
         $('#backup_all').click(function () {
-            var socket = new WebSocket("ws://" + window.location.host + "/echo_once/");
+            var socket = new WebSocket("ws://" + window.location.host + "/index/");
             socket.onopen = function () {
                 console.log('WebSocket open');//成功连接上Websocket
                 socket.send($('#message').val());//发送数据到服务端
@@ -27,8 +29,8 @@
 <body>
 <br>
 <div class="item form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12">请输入</label>
-    <div class="col-md-6 col-sm-6 col-xs-12">
+    <label>请输入</label>
+    <div>
 <input type="text" id="message" />
     </div>
 </div>
