@@ -1,0 +1,115 @@
+/* command links */
+a[href^='#'] {
+  text-decoration: none;
+  font-family: monospace; }
+
+.tip {
+  font-size: 0.85em; }
+
+a:hover {
+  background-color: black;
+  color: white; }
+
+div.nopad {
+  padding: 0px; }
+
+#header {
+  margin: auto;
+  margin-top: 1em;
+  padding: 0em;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  border: 5px solid #595540;
+  text-align: center;
+  width: 600px;
+  background-color: #cc8139; }
+
+#log {
+  width: 90%;
+  height: 75%;
+  background-color: papayawhip;
+  margin: auto;
+  margin-top: -5px;
+  padding: 1em 1em 1em 1em;
+  border: 5px solid #595540;
+  overflow: auto;
+  font-family: monospace;
+  color: #262626;
+  font-size: 1.25em;
+  word-wrap: break-word; }
+  #log h1 {
+    font-size: 1.5em;
+    line-height: 1.25em; }
+  #log .line {
+    margin: 0em 0em 1em 0em;
+    line-height: 1.25em; }
+  #log span.prompt {
+    font-weight: normal;
+    color: #595540; }
+  #log .input {
+    font-weight: bold;
+    color: #595540; }
+    #log .input a {
+      color: #595540; }
+  #log .response {
+    font-weight: bold;
+    color: #262626; }
+  #log .notification {
+    font-weight: normal;
+    background-color: #262626;
+    color: #cc8139;
+    font-family: sans-serif;
+    font-size: 0.75em;
+    padding: 1em; }
+  #log .error {
+    font-weight: normal;
+    background-color: darkred;
+    color: white;
+    font-family: sans-serif;
+    font-size: 0.75em;
+    padding: 1em; }
+  #log a {
+    color: peachpuff; }
+  #log a.comment {
+    color: gray; }
+  #log .tutorial_next {
+    margin: 0px;
+    text-align: right; }
+  #log pre {
+    margin-left: 2em; }
+  #log li {
+    padding: 0.25em; }
+
+#toolbar {
+  width: 950px;
+  margin: auto;
+  padding: 0em;
+  border: 0px;
+  margin-top: -5px;
+  display: none; }
+  #toolbar #input {
+    padding: 0.5em;
+    width: 80%;
+    font-size: 1.5em;
+    background-color: #cc8139;
+    color: #262626;
+    font-family: monospace;
+    border: 5px solid #595540;
+    outline: none;
+    background-image: url("/static/img/prompt.png");
+    background-repeat: no-repeat;
+    padding-left: 45px; }
+
+
+
+#footer {
+  width: 600px;
+  margin: auto;
+  text-align: center;
+  color: papayawhip;
+  font-size: 0.75em; }
+  #footer a {
+    color: peachpuff; }
+
+body {
+  background-color: #262626; }

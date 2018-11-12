@@ -1,21 +1,19 @@
-{% load staticfiles %}
-{% block content %}
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>运维平台</title>
-    <link rel="stylesheet" href="/static/css/bootstrap.css">
-    <link rel="stylesheet" href="/static/css/bootstrap-theme.css">
-    <script src="/static/js/bootstrapValidator.min.js"></script>
-    <script src="/static/js/bootstrap-modal-vertical.js"></script>
-    <script src="/static/js/bootstrap.js"></script>
-    <script src="/static/js/jquery-1.12.4.js"></script>
+
+<!-- saved from url=(0020)http://try.redis.io/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Try Redis</title>
+    <link href="/static/css/style.css" rel="stylesheet">
+    <script src="/static/js/jquery.min.js" type="application/x-javascript"></script>
+{#    <script src="/static/js/underscore-min.js" type="application/x-javascript"></script>#}
+    <script src="/static/js/json2.js" type="application/x-javascript"></script>
+{#    <script src="/static/js/terminal.js" type="application/x-javascript"></script>#}
     <script type="text/javascript">//<![CDATA[
     $(function () {
         $('#backup_all').click(function () {
             var socket = new WebSocket("ws://" + window.location.host + "/index/");
             socket.onopen = function () {
                 console.log('WebSocket open');//成功连接上Websocket
-                socket.send($('#message').val());//发送数据到服务端
+                socket.send($('#input').val());//发送数据到服务端
             };
             socket.onmessage = function (e) {
                 console.log('message: ' + e.data);//打印服务端返回的数据
@@ -25,27 +23,23 @@
         });
     });
     </script>
-</head>
-<body>
-<form class="form-horizontal">
-  <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">输入命令</label>
-    <div class="col-sm-10">
-      <input type="text" style="margin: 20px;height: 40px;background-color: aliceblue;" id="message" placeholder="ls -a">
+  </head>
+  <body style="">
+    <div id="header">
+      <img height="50" src="/static/img/try-redis-500x50.png" width="500">
     </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-      <button type="button" class="btn btn-default" id="backup_all" value="backup_all">执行命令</button>
+    <div id="log">
+
+
+          <div id="messagecontainer" style="margin: 20px;"></div>
+
     </div>
-  </div>
-</form>
-<br>
+    <div id="toolbar" style="display: block;">
+      <input id="input" spellcheck="false">
+      <button type="button" id="backup_all"  style="padding: 0.5em;font-size: 1.5em;background-color: #cc8139;color: #262626;font-family: monospace;border: 5px solid #595540;"> 执行命令</button>
+    </div>
 
-<h3 style="margin: 20px;">脚本执行结果:</h3>
-<div id="messagecontainer" style="margin: 20px;">
-</div>
-<hr/>
-</body>
-{% endblock %}
 
+  
+
+</body></html>
