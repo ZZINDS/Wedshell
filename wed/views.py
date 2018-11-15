@@ -12,9 +12,9 @@ import paramiko
 
 
 def exec_command(comm):
-    hostname = "xxx"    #ip
-    username = "xxx"   #用户名
-    password = "xxx"   #密码
+    hostname = "xxxxx"    #ip
+    username = "xxxxx"   #用户名
+    password = "xxxxxxxxxx"   #密码
 
     ssh = paramiko.SSHClient()
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -30,7 +30,7 @@ def index(request):
 
     if not request.is_websocket():  # 判断是不是websocket连接
         try:  # 如果是普通的http方法
-            message = request.GET['message']
+            message = request.GET['input']
             return HttpResponse(message)
         except:
             return render(request, 'index.html')
